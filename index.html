@@ -1655,38 +1655,67 @@ restaurant services, conferences, gardens and relaxation.
 </section>
 </section>
 
-    <section class="review-section" id="reviews">
+<!-- ================= REVIEWS ================= -->
 
-<form id="reviewForm"
-      action="https://formsubmit.co/ajax/resortcherm@gmail.com"
-      method="POST"
-      style="display:none;">
+<section class="review-section" id="reviews">
 
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_subject" value="New Customer Review">
+    <h2>Customer Reviews</h2>
 
-    <input type="text" name="Name" placeholder="Your Name" required>
+    <p>
+        We'd love to hear about your experience at Cherm Resort.
+    </p>
 
-    <input type="email" name="Email" placeholder="Your Email" required>
+    <button id="reviewBtn" class="review-btn">
+        Make a Review
+    </button>
 
-    <select name="Rating" required>
-        <option value="">Select Rating</option>
-        <option>⭐⭐⭐⭐⭐ Excellent</option>
-        <option>⭐⭐⭐⭐ Very Good</option>
-        <option>⭐⭐⭐ Good</option>
-        <option>⭐⭐ Fair</option>
-        <option>⭐ Poor</option>
-    </select>
+    <form id="reviewForm"
+          action="https://formsubmit.co/ajax/resortcherm@gmail.com"
+          method="POST"
+          class="review-form">
 
-    <textarea name="Review" placeholder="Write your review..." required></textarea>
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="New Customer Review">
 
-    <button type="submit">Submit Review</button>
-</form>
+        <input
+            type="text"
+            name="Name"
+            placeholder="Your Name"
+            required>
 
-<div id="reviewSuccess"
-     style="display:none;background:#28a745;color:#fff;padding:15px;margin-top:15px;border-radius:8px;">
-    ✅ Thank you! Your review has been received.
-</div>
+        <input
+            type="email"
+            name="Email"
+            placeholder="Your Email"
+            required>
+
+        <select name="Rating" required>
+            <option value="">Select Rating</option>
+            <option>⭐⭐⭐⭐⭐ Excellent</option>
+            <option>⭐⭐⭐⭐ Very Good</option>
+            <option>⭐⭐⭐ Good</option>
+            <option>⭐⭐ Fair</option>
+            <option>⭐ Poor</option>
+        </select>
+
+        <textarea
+            name="Review"
+            placeholder="Write your review..."
+            rows="5"
+            required></textarea>
+
+        <button type="submit">
+            Submit Review
+        </button>
+
+    </form>
+
+    <div id="reviewSuccess"
+         style="display:none;background:#28a745;color:#fff;padding:15px;margin-top:20px;border-radius:8px;font-weight:bold;">
+        ✅ Thank you! Your review has been received.
+    </div>
+
+</section>
 <!-- ================= GOOGLE MAP ================= -->
 
 <section id="map">
