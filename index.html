@@ -1657,19 +1657,19 @@ restaurant services, conferences, gardens and relaxation.
 
     <section class="review-section" id="reviews">
 
-    <h2>Customer Reviews</h2>
-    <p>Share your experience at CHERM Resort.</p>
+<form id="reviewForm"
+      action="https://formsubmit.co/ajax/resortcherm@gmail.com"
+      method="POST"
+      style="display:none;">
 
-    
-  <button id="reviewBtn" class="review-btn">Make a Review</button>
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_subject" value="New Customer Review">
 
-<div id="reviewForm" style="display:none;">
+    <input type="text" name="Name" placeholder="Your Name" required>
 
-    <input type="text" placeholder="Your Name" required>
+    <input type="email" name="Email" placeholder="Your Email" required>
 
-    <input type="email" placeholder="Your Email" required>
-
-    <select required>
+    <select name="Rating" required>
         <option value="">Select Rating</option>
         <option>⭐⭐⭐⭐⭐ Excellent</option>
         <option>⭐⭐⭐⭐ Very Good</option>
@@ -1678,13 +1678,15 @@ restaurant services, conferences, gardens and relaxation.
         <option>⭐ Poor</option>
     </select>
 
-    <textarea placeholder="Write your review..." required></textarea>
+    <textarea name="Review" placeholder="Write your review..." required></textarea>
 
     <button type="submit">Submit Review</button>
+</form>
 
+<div id="reviewSuccess"
+     style="display:none;background:#28a745;color:#fff;padding:15px;margin-top:15px;border-radius:8px;">
+    ✅ Thank you! Your review has been received.
 </div>
-</section>
-
 <!-- ================= GOOGLE MAP ================= -->
 
 <section id="map">
@@ -1986,7 +1988,34 @@ orderForm.addEventListener("submit", async function(e) {
     }
 });
 </script>
+    
+const reviewForm = document.getElementById("reviewForm");
+const reviewSuccess = document.getElementById("reviewSuccess");
 
+reviewForm.addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(reviewForm);
+
+    const response = await fetch(reviewForm.action, {
+        method: "POST",
+        body: formData,
+        headers: {
+            "Accept": "application/json"
+        }
+    });
+
+    if (response.ok) {
+        reviewForm.reset();
+        reviewSuccess.style.display = "block";
+
+        setTimeout(() => {
+            reviewSuccess.style.display = "none";
+        }, 5000);
+    } else {
+        alert("Failed to send review.");
+    }
+});
 </body>
 
 </html>
