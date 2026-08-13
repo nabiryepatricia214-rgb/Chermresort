@@ -313,19 +313,13 @@ transform:translateY(-2px);
 }
 
 /*================ FACILITIES ================*/
+
 .facilities{
     padding:80px 8%;
     background:#F8F4E8;
 }
 
-.facilities h2{
-    text-align:center;
-    font-size:2.2rem;
-    color:#0d4b2f;
-    margin-bottom:40px;
-}
-
-.facility-grid{
+.facility-container{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:30px;
@@ -336,36 +330,28 @@ transform:translateY(-2px);
     border-radius:15px;
     overflow:hidden;
     box-shadow:0 8px 20px rgba(0,0,0,.12);
-    transition:.3s;
-}
-
-.facility-card:hover{
-    transform:translateY(-6px);
 }
 
 .facility-card img,
 .facility-card video{
     width:100%;
-    aspect-ratio:16/10;
+    height:auto;
+    display:block;
     object-fit:contain;
     background:#000;
-    display:block;
 }
 
 .facility-card h3{
-    color:#0d4b2f;
+    padding:18px 20px 10px;
+    color:#063b26;
     text-align:center;
-    margin:18px 0 10px;
 }
 
 .facility-card p{
+    padding:0 20px 20px;
+    line-height:1.7;
     text-align:center;
-    padding:0 18px 20px;
-    line-height:1.6;
-    color:#555;
 }
-
-
 /*================ MENU ================*/
 
 .menu-preview{
@@ -889,11 +875,18 @@ footer hr{
     margin-top:-40px;
 }
 
-.room-card img,
-.facility-card img,
-.facility-card video,
+.room-card img{
+    height:200px;
+}
+
 .gallery img{
     height:200px;
+}
+
+.facility-card img,
+.facility-card video{
+    height:auto !important;
+    object-fit:contain !important;
 }
 
 .footer-container,
@@ -1356,10 +1349,9 @@ Refresh your body and mind with our premium sauna and steam bath facilities.
 </div>
 
 <div class="facility-card">
-<div class="about-video">
-    <video controls autoplay muted loop playsinline>
+  <video controls autoplay muted loop playsinline>
         <source src="Vcl.mp4" type="video/mp4">
-        Your browser does not support the video tag.
+        
     </video>
 </div>
 <h3>Beautiful Gardens</h3>
